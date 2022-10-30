@@ -97,6 +97,8 @@ class Emu2:
                 line = await self._reader.readline()
             except Exception as ex:
                 _LOGGER.error(ex)
+                _LOGGER.info("restarting emu 2")
+                await self.restart()
                 self._connected = False
                 break
             
